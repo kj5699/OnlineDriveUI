@@ -64,8 +64,10 @@ const OnlineDrive = () => {
 
   const createFolder = (name, parentId) => {
     return new Promise((resolve,reject) => {
-      const folderNameExist = folders.findIndex(item => (item?.name === name && item.parentId === parentId)) !== -1 ;
-      if(!folderNameExist){
+      const folderNameExist = folders.findIndex(item => (item?.name === name && item.parentId === parentId)) !== -1;
+      if(!name || name===''){
+        reject({message: 'Folder name cannnot be empty'})
+      }else if(!folderNameExist){
         const newFolder = {
           id: folders.length + 1,
           name,
@@ -83,7 +85,9 @@ const OnlineDrive = () => {
   const createFile = (name, parentId) => {
     return new Promise((resolve,reject) => {
       const fileNameExist = files.findIndex(item => (item?.name === name && item.parentId === parentId)) !== -1 ;
-      if(!fileNameExist){
+      if(!name || name===''){
+        reject({message: 'File name cannnot be empty'});
+      }else if(!fileNameExist){
           const newFile = {
             id: files.length + 1,
             name,
@@ -91,7 +95,6 @@ const OnlineDrive = () => {
           };
           setFiles([...files, newFile]);
         resolve();
-
       }else{
         reject({message: 'File name already exist.'})
       }
@@ -114,9 +117,12 @@ const OnlineDrive = () => {
   };
 
   const renameFile = async(id, name) => {
+    const fileNameExist = files.findIndex(item => (item?.name === name && id !== item.id && item.parentId === currentFolder.id)) !== -1 ;
     return new Promise((resolve, reject)=>{
       const fileNameExist = files.findIndex(item => (item?.name === name && id !== item.id && item.parentId === currentFolder.id)) !== -1 ;
-      if(!fileNameExist){
+      if(!name || name===''){
+        reject({message: 'File name cannnot be empty'})
+      }else if(!fileNameExist){
         setFiles(
           files.map((file) => {
             if (file.id === id) {
@@ -137,7 +143,9 @@ const OnlineDrive = () => {
       const folderNameExist = folders.findIndex(item => { 
         return(item?.name === name && id !== item.id && item.parentId === currentFolder.id)
       }) !== -1;
-      if(!folderNameExist){
+      if(!name || name===''){
+        reject({message: 'Folder name cannnot be empty'})
+      }else if(!folderNameExist){
         setFolders(
           folders.map((folder) => {
             if (folder.id === id) {
