@@ -33,7 +33,7 @@ function ContextMenuWrapper({ id, children , item, onRename, onDelete}) {
       setModalOpen(false);
       setModalAction(null);
     }).catch((error)=>{
-      console.log(er);
+      console.log(error);
     })
   }
   const closeHandler = () => {

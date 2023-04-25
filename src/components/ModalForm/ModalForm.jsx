@@ -4,11 +4,9 @@ import Button from '../Button'
 const ModalForm = ({initialValue, buttonLabel, onSubmit, error, setFormError, placeHolder}) => {
   const inputRef = useRef(initialValue);
   const onChangehandler = () => {
-    console.log(inputRef.current.value);
     setFormError(null);
   }
   const onClickHandler = (event) => {
-    console.log('This Clicked');
     event.preventDefault();
     onSubmit(inputRef.current.value);
   }
