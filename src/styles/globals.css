@@ -25,3 +25,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.react-contextmenu-wrapper{
+  height: 100%;
+  display: flex;
+  align-content: center;
+}

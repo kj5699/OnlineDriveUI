@@ -1,0 +1,6 @@
+.menuItem{
+    @apply px-4 py-2 cursor-pointer ;
+    &:hover{
+        background-color: text-main-secondary;
+    }
+}

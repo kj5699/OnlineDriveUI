@@ -1,0 +1,9 @@
+.closeIcon{
+    position: absolute;
+    top:4px;
+    left: 90%;
+    cursor: pointer;
+}
+.modalWrapper{
+    @apply text-main-primary relative flex flex-col justify-start items-center w-72 p-2 ;
+}

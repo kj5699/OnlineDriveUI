@@ -1,0 +1,34 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  @apply text-main-primary px-4 flex flex-col justify-start items-center;
+
+}
+.header{
+  @apply w-full h-16 flex py-4 px-4 items-center ;
+  border-bottom: 0.5px dotted #494947;
+  max-height: 64px;
+}
+.breadCrumb{
+  font-size: 16px;
+  line-height: 24px;
+  cursor: pointer;
+  &:hover{
+    font-size: 18px;
+    line-height: 24px;
+    color:#A2A392
+  }
+}
+.itemWrapper{
+  @apply flex flex-col items-start justify-center w-24;
+}
+.driveContent{
+  @apply w-full h-full p-8 grid grid-cols-4 gap-8 auto-rows-max;
+}
+.createNewOptions{
+  @apply flex rounded border border-main-blue cursor-pointer text-xs mb-6 ;
+  .newOption{
+    @apply p-2 w-16 text-center;
+  }
+}
